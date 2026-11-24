@@ -43,7 +43,7 @@ export const donationAddress = (): string | undefined => {
 // Suggested amounts, in sat
 export const donationPresets = [10_000, 100_000, 1_000_000];
 
-export const donationLabel = "Lightning Fork Swap donation";
+export const donationLabel = "Kiloswap donation";
 
 // The BIP21 a wallet scans: the address, the amount (when chosen) and a
 // label. Same scheme as the swap pages

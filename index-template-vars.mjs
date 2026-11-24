@@ -14,8 +14,8 @@ const helpFlags = Object.freeze(["--help", "-h"]);
 // Accepted for compatibility with older scripts; there is only one variant
 const legacyFlags = Object.freeze(["--regular"]);
 
-const siteUrl = "https://lightningfork.com";
-const siteTitle = "Lightning Fork Swap";
+const siteUrl = "https://swap.kilombino.com";
+const siteTitle = "Kiloswap";
 const siteDescription =
     "Non-custodial swaps between the Bitcoin BLAKE2b chain and its Lightning network.";
 
@@ -26,13 +26,13 @@ const config = {
     themeColor: "#070b16",
     backgroundColor: "#070b16",
     accentColor: "#4e93ff",
-    previewImage: `${siteUrl}/lightning-fork-swap-preview.jpg`,
+    previewImage: `${siteUrl}/kiloswap-preview.jpg`,
     ldJson: {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         name: siteTitle,
         url: siteUrl,
-        image: `${siteUrl}/lightning-fork-swap-preview.jpg`,
+        image: `${siteUrl}/kiloswap-preview.jpg`,
         logo: `${siteUrl}/android-chrome-512x512.png`,
         description: siteDescription,
         applicationCategory: "FinanceApplication",

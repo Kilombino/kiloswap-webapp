@@ -106,7 +106,7 @@ const dict = {
         refund_explainer: "You will be able to refund after the swap timeout!",
         created: "Created",
         id: "ID",
-        headline: "Lightning Fork Swap",
+        headline: "Kiloswap",
         subline:
             "Swap between the Bitcoin (BLAKE2b) chain and its Lightning network. Non-custodial: your keys never leave your browser.",
         start_swapping: "Start Swapping",

@@ -664,10 +664,10 @@ const Create = () => {
             <Show when={embeddedMode()}>
                 <div class="embedded-branding">
                     <a
-                        href="https://lightningfork.com"
+                        href="https://swap.kilombino.com"
                         target="_blank"
                         rel="noopener noreferrer">
-                        Powered by Lightning Fork Swap
+                        Powered by Kiloswap
                     </a>
                 </div>
             </Show>

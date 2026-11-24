@@ -1,6 +1,6 @@
 {
-    "short_name": "LF Swap",
-    "name": "Lightning Fork Swap",
+    "short_name": "Kiloswap",
+    "name": "Kiloswap",
     "description": "Non-custodial swaps between the Bitcoin BLAKE2b chain and its Lightning network.",
     "icons": [
         {
@@ -12,6 +12,12 @@
             "src": "android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "android-chrome-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
     "orientation": "portrait",

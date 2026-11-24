@@ -13,7 +13,7 @@ const Privacy: Component = () => {
             <h1>Privacy</h1>
             <p class="legal-updated">Last updated: 27 October 2026</p>
             <p>
-                This page explains what Lightning Fork Swap (the "service")
+                This page explains what Kiloswap (the "service")
                 records when you use it, why, and for how long.
             </p>
 

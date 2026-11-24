@@ -9,7 +9,7 @@ const Terms: Component = () => {
         <div class="terms-container">
             <h1>Terms of Use</h1>
             <p>
-                By using Lightning Fork Swap (the "service") you accept these
+                By using Kiloswap (the "service") you accept these
                 terms. If you do not accept them, do not use the service.
             </p>
 

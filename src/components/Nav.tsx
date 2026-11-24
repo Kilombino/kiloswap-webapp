@@ -1,7 +1,7 @@
 import { A } from "@solidjs/router";
 import { Show, createSignal } from "solid-js";
 
-import logo from "../assets/lightning-fork-icon.webp";
+import logo from "../assets/kiloswap-icon.png";
 import Warnings from "../components/Warnings";
 import { config } from "../config";
 import { useGlobalContext } from "../context/Global";
@@ -21,7 +21,7 @@ const Nav = (props: { network: string }) => {
                 <A
                     id="logo"
                     href="/"
-                    aria-label="Lightning Fork Swap"
+                    aria-label="Kiloswap"
                     onClick={() => {
                         setHideHero(false);
                         setHamburger(false);
@@ -34,7 +34,7 @@ const Nav = (props: { network: string }) => {
                         alt=""
                     />
                     <span class="logo-wordmark">
-                        Lightning Fork <span class="logo-accent">Swap</span>
+                        Kilo<span class="logo-accent">swap</span>
                     </span>
                 </A>
                 <Show when={props.network !== "mainnet"}>

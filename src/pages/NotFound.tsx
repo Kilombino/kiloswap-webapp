@@ -1,6 +1,6 @@
 import { useNavigate } from "@solidjs/router";
 
-import logo from "../assets/lightning-fork-icon.webp";
+import logo from "../assets/kiloswap-icon.png";
 import { useGlobalContext } from "../context/Global";
 
 const NotFound = () => {

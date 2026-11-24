@@ -39,6 +39,14 @@ const Footer = () => {
                 <ExternalLink href={config.repoUrl}>
                     {t("open_source")}
                 </ExternalLink>
+                {" · "}
+                <ExternalLink href="https://github.com/paulscode/lightning-fork-swap">
+                    Lightning Fork Swap
+                </ExternalLink>
+                {" · "}
+                <ExternalLink href="https://github.com/BoltzExchange">
+                    Boltz
+                </ExternalLink>
             </p>
         </footer>
     );

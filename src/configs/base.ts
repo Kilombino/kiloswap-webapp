@@ -30,9 +30,9 @@ const defaults = {
     defaultLanguage: "en",
     // The source of what runs, as AGPL-3.0 section 13 requires: this
     // repository links to the backend and web app repositories
-    repoUrl: "https://github.com/paulscode/lightning-fork-swap",
-    // Where people get help and get in touch: the operator's forum
-    contactUrl: "https://paulscode.com",
+    repoUrl: "https://github.com/Kilombino/kiloswap",
+    // Where people get help and get in touch
+    contactUrl: "https://github.com/Kilombino/kiloswap/issues",
     // The smallest channel our node accepts (lnd's minchansize)
     channelMinSat: 1_000_000,
 };

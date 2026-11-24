@@ -20,13 +20,8 @@ const config = {
     ...baseConfig,
     network: "mainnet",
     donation: donationAddress ? { address: donationAddress } : undefined,
-    ourNode: {
-        pubkey: "03cd3175b98f56a4b7a27d169ff211afe4d49973448fce92e2f7f03f526663e666",
-        uris: [
-            "91.190.100.60:9735",
-            "uo4swnsgfzlstnyx44eimndqkykz5aqbep7bqmwwg42foofgr7h2pqyd.onion:9735",
-        ],
-    },
+    // Kiloswap: no channel donations (no ourNode, no donation address)
+    torUrl: import.meta.env.VITE_TOR_URL as string | undefined,
     loglevel: "info",
     apiUrl: {
         normal: apiUrl,
@@ -36,10 +31,10 @@ const config = {
             type: AssetKind.UTXO,
             blockExplorerUrl: {
                 id: Explorer.Mempool,
-                normal: "https://mempool.guide",
+                normal: "https://mempool.kilombino.com",
             },
-            // mempool.guide sends no CORS headers, so the deployment proxies
-            // its API at /explorer/api on the same origin
+            // The deployment proxies its mempool's API at /explorer/api on
+            // the same origin (also over Tor)
             blockExplorerApis: [
                 {
                     id: Explorer.Mempool,
