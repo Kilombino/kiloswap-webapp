@@ -491,7 +491,7 @@ const dict = {
             "A swap either completes on both sides or not at all. If a chain to Lightning swap fails, you can take your coins back after its timelock with your rescue key; if a Lightning to chain swap is not completed, your Lightning payment returns to you.",
         faq_chain_q: "Which coins and networks?",
         faq_chain_a:
-            "BTC on the Bitcoin (BLAKE2b) chain, and the Lightning Fork network built on it. Invoices and addresses from other networks are refused.",
+            "BTC (Blake2b) (XBT) and the Lightning Network built on it. Invoices and addresses from other shitcoins are refused.",
         faq_rescue_q: "What is the rescue key?",
         faq_rescue_a:
             "A file your browser makes for your swaps. Keep it: with it you can refund a failed swap from the Rescue page, even without this service.",

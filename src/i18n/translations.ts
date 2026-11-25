@@ -162,6 +162,7 @@ const translations = {
         "language_choose": "Sprache"
     },
     "es": {
+        "faq_chain_a": "BTC (Blake2b) (XBT) y la red Lightning construida sobre él. Se rechazan facturas y direcciones de otras shitcoins.",
         "copy_onion": "Copiar dirección .onion",
         "copy_onion_done": "Dirección .onion copiada: ábrela en Tor Browser",
         "on_tor": "Estás en Tor",
