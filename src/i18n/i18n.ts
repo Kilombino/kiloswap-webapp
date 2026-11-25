@@ -104,6 +104,10 @@ const dict = {
         api_offline_msg:
             "Could not connect to the swap API, please try again later",
         refund_explainer: "You will be able to refund after the swap timeout!",
+        refund_no_coop:
+            "This service never co-signs a refund, so there is no early refund: wait until the timeout block above. From then on your rescue key alone takes your coins back, with one transaction from this page, even if the service is down.",
+        refund_no_coop_es:
+            "Este servicio nunca firma reembolsos a medias, así que no hay reembolso anticipado: espera al bloque de vencimiento indicado arriba. A partir de ahí, tu clave de rescate basta para recuperar tus monedas con una transacción desde esta página, aunque el servicio esté caído.",
         created: "Created",
         id: "ID",
         headline: "Kiloswap",

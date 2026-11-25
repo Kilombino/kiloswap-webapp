@@ -445,6 +445,14 @@ describe("Pay", () => {
         const refundEta = await screen.findByTestId("refund-eta");
         const expectedDate = new Date(timeoutEta * 1000).toLocaleString();
         expect(refundEta).toHaveTextContent(expectedDate);
+        // Kiloswap: no cooperative refund, so the wait for the timeout is
+        // explained, in English and in Spanish
+        expect(screen.getByTestId("refund-no-coop")).toHaveTextContent(
+            dict.en.refund_no_coop,
+        );
+        expect(screen.getByTestId("refund-no-coop-es")).toHaveTextContent(
+            dict.en.refund_no_coop_es,
+        );
     });
 
     test("should show refund button automatically when swap has timed out with UTXOs", async () => {

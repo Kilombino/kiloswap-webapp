@@ -7,8 +7,10 @@ import sys
 
 
 def handle_coop_disabled():
-    print("Cooperative signatures are disabled in config")
-    sys.exit(1)
+    # Kiloswap: cooperative signing is off on purpose (the server key lives
+    # in a separate guard that signs nothing on the backend's request), so a
+    # build with it disabled is the expected one, not a mistake
+    print("Cooperative signatures are disabled in config (Kiloswap: expected)")
 
 
 with open("./src/config.ts", "r") as f:

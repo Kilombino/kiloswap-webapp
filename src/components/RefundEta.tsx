@@ -1,3 +1,4 @@
+import { isCooperativeDisabled } from "boltz-swaps/config";
 import { type Accessor, Show } from "solid-js";
 
 import { useGlobalContext } from "../context/Global";
@@ -24,6 +25,14 @@ const RefundEta = (props: {
                     {t("timeout_eta")}: {getDateString(props.timeoutEta())}
                 </Show>
             </p>
+            <Show when={isCooperativeDisabled()}>
+                <p class="frame-text" data-testid="refund-no-coop">
+                    {t("refund_no_coop")}
+                </p>
+                <p class="frame-text" lang="es" data-testid="refund-no-coop-es">
+                    {t("refund_no_coop_es")}
+                </p>
+            </Show>
         </div>
     );
 };
