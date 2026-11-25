@@ -6,9 +6,20 @@ import "../style/footer.scss";
 import { openDonate } from "../utils/donate";
 import { donationAvailable } from "./DonateModal";
 import ExternalLink from "./ExternalLink";
+import { clipboard } from "../utils/helper";
 
 const Footer = () => {
-    const { t } = useGlobalContext();
+    const { t, notify } = useGlobalContext();
+    // Kiloswap: the .onion host (from VITE_TOR_URL), to copy for Tor Browser;
+    // over Tor already, say so instead
+    const onionHost = () => {
+        try {
+            return config.torUrl ? new URL(config.torUrl).host : undefined;
+        } catch {
+            return undefined;
+        }
+    };
+    const onTor = () => window.location.hostname.endsWith(".onion");
 
     return (
         <footer>
@@ -29,10 +40,26 @@ const Footer = () => {
                         {t("donate")}
                     </a>
                 </Show>
-                <Show when={config.torUrl}>
-                    <ExternalLink href={config.torUrl!}>
-                        {t("onion")}
-                    </ExternalLink>
+                <Show when={onionHost()}>
+                    <Show
+                        when={!onTor()}
+                        fallback={
+                            <span class="footer-onion" data-testid="on-tor">
+                                🧅 {t("on_tor")}
+                            </span>
+                        }>
+                        <button
+                            type="button"
+                            class="footer-onion"
+                            data-testid="copy-onion"
+                            title={onionHost()}
+                            onClick={() => {
+                                clipboard(onionHost()!);
+                                notify("success", t("copy_onion_done"));
+                            }}>
+                            🧅 {t("copy_onion")}
+                        </button>
+                    </Show>
                 </Show>
             </div>
             <p class="attribution">

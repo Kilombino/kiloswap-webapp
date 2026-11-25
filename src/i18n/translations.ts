@@ -162,6 +162,9 @@ const translations = {
         "language_choose": "Sprache"
     },
     "es": {
+        "copy_onion": "Copiar dirección .onion",
+        "copy_onion_done": "Dirección .onion copiada: ábrela en Tor Browser",
+        "on_tor": "Estás en Tor",
         "copy_txid": "Copiar txid",
         "backup_skip": "Omitir",
         "backup_skip_warning": "Si pierdes este navegador y el swap falla, nadie podrá recuperar tus fondos, ni siquiera Kiloswap. La clave queda guardada en este navegador.",
