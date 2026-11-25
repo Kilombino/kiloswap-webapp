@@ -1,3 +1,4 @@
+import { isCooperativeDisabled } from "boltz-swaps/config";
 import log from "loglevel";
 import {
     type Accessor,
@@ -13,7 +14,7 @@ import RefundEta from "../components/RefundEta";
 import { type deriveKeyFn, useGlobalContext } from "../context/Global";
 import { usePayContext } from "../context/Pay";
 import { useModifySwap } from "../hooks/useModifySwap";
-import { getSwapUTXOs } from "../utils/blockchain";
+import { getBlockTipHeight, getSwapUTXOs } from "../utils/blockchain";
 import { validateAddress } from "../utils/compat";
 import { formatError } from "../utils/errors";
 import { RefundType, refund } from "../utils/rescue";
@@ -32,6 +33,23 @@ export const RefundBtc = (props: {
 
     const [timeoutEta, setTimeoutEta] = createSignal<number>(0);
     const [timeoutBlockheight, setTimeoutBlockheight] = createSignal<number>(0);
+
+    // Kiloswap: the server signs no refund, so before the timeout block the
+    // only honest thing to show is when the refund becomes possible
+    createEffect(() => {
+        const swap = props.swap();
+        if (!isCooperativeDisabled() || !swap?.timeoutBlockHeight) return;
+        const timeout = swap.timeoutBlockHeight;
+        void getBlockTipHeight(swap.assetSend)
+            .then((height) => {
+                if (Number(height) < timeout) setTimeoutBlockheight(timeout);
+            })
+            .catch((e) => {
+                // no explorer to ask: say when anyway
+                log.debug("tip height unknown", e);
+                setTimeoutBlockheight(timeout);
+            });
+    });
 
     const [valid, setValid] = createSignal<boolean>(false);
     const [refundRunning, setRefundRunning] = createSignal<boolean>(false);
