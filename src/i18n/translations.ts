@@ -162,6 +162,7 @@ const translations = {
         "language_choose": "Sprache"
     },
     "es": {
+        "successfully_swapped_approx": "Has recibido ≈ {{ amount }} {{ denomination }}, menos la comisión de red de la transacción de cobro.",
         "faq_chain_a": "BTC (Blake2b) (XBT) y la red Lightning construida sobre él. Se rechazan facturas y direcciones de otras shitcoins.",
         "copy_onion": "Copiar dirección .onion",
         "copy_onion_done": "Dirección .onion copiada: ábrela en Tor Browser",

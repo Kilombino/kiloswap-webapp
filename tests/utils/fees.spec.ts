@@ -10,6 +10,7 @@ import {
 
 const mockGetFeeEstimationsFromBoltz = vi.fn();
 const mockGetFeeEstimationsFromBlockchain = vi.fn();
+const mockGetMempoolEconomyFeeRate = vi.fn();
 
 vi.mock("../../packages/boltz-swaps/src/client.ts", () => ({
     getFeeEstimations: () => mockGetFeeEstimationsFromBoltz() as unknown,
@@ -18,6 +19,8 @@ vi.mock("../../packages/boltz-swaps/src/client.ts", () => ({
 vi.mock("../../src/utils/blockchain", () => ({
     getFeeEstimations: (api: unknown) =>
         mockGetFeeEstimationsFromBlockchain(api) as unknown,
+    getMempoolEconomyFeeRate: (api: unknown) =>
+        mockGetMempoolEconomyFeeRate(api) as unknown,
 }));
 
 describe("fees", () => {
@@ -216,6 +219,16 @@ describe("fees", () => {
             mockGetFeeEstimationsFromBlockchain.mockResolvedValue(7);
             expect(await minClaimFeeRate(BTC)).toEqual(7);
             expect(mockGetFeeEstimationsFromBoltz).not.toHaveBeenCalled();
+        });
+
+        test("a claim's rate is the mempool's economy rate, not its half-hour one", async () => {
+            config.assets![BTC].blockExplorerApis = [
+                { id: Explorer.Mempool, normal: "https://mempool.example" },
+            ];
+            mockGetFeeEstimationsFromBlockchain.mockResolvedValue(2);
+            mockGetMempoolEconomyFeeRate.mockResolvedValue(1);
+            expect(await minClaimFeeRate(BTC)).toEqual(1);
+            expect(mockGetFeeEstimationsFromBlockchain).not.toHaveBeenCalled();
         });
 
         test("a claim's rate falls back to the API, and never under 1", async () => {

@@ -57,6 +57,8 @@ const dict = {
         congrats: "Congratulations!",
         successfully_swapped:
             "You successfully received {{ amount }} {{ denomination }}!",
+        successfully_swapped_approx:
+            "You received ≈ {{ amount }} {{ denomination }}, minus the network fee of the claim transaction.",
         timeout_eta: "Timeout ETA",
         pay_invoice: "Swap: {{ id }}",
         pay_swap_404: "Swap not found!",

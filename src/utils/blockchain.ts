@@ -364,6 +364,29 @@ const getEsploraFeeEstimations = async (apiEndpoint: Url) => {
     }
 };
 
+// Kiloswap: the rate a reverse swap's claim needs is only one that relays
+// and confirms well before the (long) timeout, so the economy rate: the claim
+// then stays within what the swap set aside for it, and the user receives
+// what the swap form showed
+export const getMempoolEconomyFeeRate = async (
+    mempoolApi: Url,
+): Promise<number> => {
+    const { opts, requestTimeout } = constructRequestOptions();
+    try {
+        const res = await fetch(
+            `${chooseUrl(mempoolApi)}/v1/fees/recommended`,
+            opts,
+        );
+        if (!res.ok) {
+            await handleResponseError(res);
+        }
+        const fees = (await res.json()) as MempoolFeeEstimation;
+        return fees.economyFee ?? fees.hourFee;
+    } finally {
+        clearTimeout(requestTimeout);
+    }
+};
+
 const getMempoolFeeEstimations = async (mempoolApi: Url) => {
     const { opts, requestTimeout } = constructRequestOptions();
     try {

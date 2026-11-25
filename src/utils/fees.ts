@@ -4,7 +4,10 @@ import log from "loglevel";
 
 import { config } from "../config";
 import { BTC } from "../consts/Assets";
-import { getFeeEstimations as getFeeEstimationsFromExplorer } from "./blockchain";
+import {
+    getFeeEstimations as getFeeEstimationsFromExplorer,
+    getMempoolEconomyFeeRate,
+} from "./blockchain";
 import { formatError } from "./errors";
 
 // HTLCs are time sensitive, so we need to add a floor to the fee estimations
@@ -73,18 +76,24 @@ export const getFeeEstimationsFailover = async (asset: string) => {
 // Below this no node relays a transaction
 const relayFloorRate = 1;
 
-const explorerFeeRate = async (asset: string): Promise<number> => {
+
+// The explorer's economy rate (mempool), for claims; any other explorer
+// type falls back to its usual estimate
+const explorerClaimFeeRate = async (asset: string): Promise<number> => {
     const apis = config.assets?.[asset]?.blockExplorerApis ?? [];
     for (const api of [...apis].sort(
         (a, b) => priorityOfBlockExplorer(a.id) - priorityOfBlockExplorer(b.id),
     )) {
         try {
-            const fee = await getFeeEstimationsFromExplorer(api);
+            const fee =
+                api.id === Explorer.Mempool
+                    ? await getMempoolEconomyFeeRate(api)
+                    : await getFeeEstimationsFromExplorer(api);
             if (typeof fee === "number" && Number.isFinite(fee) && fee > 0) {
                 return fee;
             }
         } catch (e) {
-            log.warn(`no fee rate from ${api.id}: ${formatError(e)}`);
+            log.warn(`no claim fee rate from ${api.id}: ${formatError(e)}`);
         }
     }
     throw new Error(`no fee rate from an explorer for ${asset}`);
@@ -97,7 +106,7 @@ const explorerFeeRate = async (asset: string): Promise<number> => {
 export const minClaimFeeRate = async (asset: string): Promise<number> => {
     let rate: number | undefined;
     try {
-        rate = await explorerFeeRate(asset);
+        rate = await explorerClaimFeeRate(asset);
     } catch {
         try {
             const fee = (await getFeeEstimations())[asset];

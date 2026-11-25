@@ -69,9 +69,33 @@ describe("TransactionClaimed", () => {
             screen.findByText(i18n.en.congrats),
         ).resolves.not.toBeUndefined();
         expect(
-            screen.getByText(/You successfully received/u),
+            screen.getByText(
+                swap.type === SwapType.Reverse
+                    ? /You received ≈ .* minus the network fee/u
+                    : /You successfully received/u,
+            ),
         ).toBeInTheDocument();
         expect(getSubmarinePreimage).not.toHaveBeenCalled();
+    });
+
+    test("should show what the claim transaction really paid out", async () => {
+        // A claim paying 8 817 sat (1 input, 1 output) built for the test
+        const { Transaction } = await import("@scure/btc-signer");
+        const tx = new Transaction({ allowUnknownOutputs: true });
+        tx.addInput({ txid: new Uint8Array(32), index: 0 });
+        tx.addOutput({ script: new Uint8Array([0x51]), amount: 8817n });
+        renderClaimed({
+            id: "rev",
+            type: SwapType.Reverse,
+            assetSend: LN,
+            assetReceive: BTC,
+            claimTx: "txid",
+            claimTxHex: tx.hex,
+            receiveAmount: 8967,
+        } as unknown as SomeSwap);
+        await expect(
+            screen.findByText(/You successfully received 8.?817/u),
+        ).resolves.not.toBeUndefined();
     });
 
     test("should show broadcasting for reverse swaps without a claim transaction", async () => {
