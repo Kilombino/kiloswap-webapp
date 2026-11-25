@@ -1,3 +1,4 @@
+import ConfNotice from "../components/ConfNotice";
 import PayOnchain from "../components/PayOnchain";
 import { usePayContext } from "../context/Pay";
 import type { SubmarineSwap } from "../utils/swapCreator";
@@ -8,14 +9,17 @@ const InvoiceSet = () => {
     const submarine = swap() as SubmarineSwap;
 
     return (
-        <PayOnchain
-            type={submarine.type}
-            assetSend={submarine.assetSend}
-            assetReceive={submarine.assetReceive}
-            expectedAmount={submarine.expectedAmount}
-            address={submarine.address}
-            bip21={swapBip21(submarine.address, submarine.expectedAmount)}
-        />
+        <>
+            <PayOnchain
+                type={submarine.type}
+                assetSend={submarine.assetSend}
+                assetReceive={submarine.assetReceive}
+                expectedAmount={submarine.expectedAmount}
+                address={submarine.address}
+                bip21={swapBip21(submarine.address, submarine.expectedAmount)}
+            />
+            <ConfNotice />
+        </>
     );
 };
 

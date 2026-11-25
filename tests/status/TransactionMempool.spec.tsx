@@ -48,6 +48,31 @@ describe("TransactionMempool", () => {
         ).not.toBeInTheDocument();
     });
 
+    // Kiloswap: the confirmation tiers are shown while an on-chain →
+    // Lightning deposit waits, and not for a reverse swap
+    test("shows the confirmation notice for a submarine swap only", () => {
+        const [swap, setSwap] = createSignal<SomeSwap | null>({
+            id: "swap-sub",
+            type: SwapType.Submarine,
+            assetSend: BTC,
+            assetReceive: LN,
+        } as SomeSwap);
+
+        render(() => <TransactionMempool swap={swap} />, {
+            wrapper: contextWrapper,
+        });
+
+        expect(screen.getByTestId("conf-notice")).toHaveTextContent(
+            i18n.en.kiloswap_conf_notice,
+        );
+        setSwap({
+            id: "swap-rev",
+            type: SwapType.Reverse,
+            assetReceive: BTC,
+        } as unknown as SomeSwap);
+        expect(screen.queryByTestId("conf-notice")).not.toBeInTheDocument();
+    });
+
     test("shows the broadcasting view while the swap is being claimed", () => {
         payContextMock.isSwapClaiming = (id) => id === "swap-claiming";
         const [swap] = createSignal<SomeSwap | null>({

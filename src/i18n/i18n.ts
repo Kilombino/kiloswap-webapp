@@ -108,6 +108,10 @@ const dict = {
             "This service never co-signs a refund, so there is no early refund: wait until the timeout block above. From then on your rescue key alone takes your coins back, with one transaction from this page, even if the service is down.",
         refund_no_coop_es:
             "Este servicio nunca firma reembolsos a medias, así que no hay reembolso anticipado: espera al bloque de vencimiento indicado arriba. A partir de ahí, tu clave de rescate basta para recuperar tus monedas con una transacción desde esta página, aunque el servicio esté caído.",
+        kiloswap_conf_notice:
+            "On-chain → Lightning: your invoice is paid once your deposit has 1 confirmation up to 0.01 BTC, 2 up to 0.1 BTC and 3 above. All pending swaps count together, so with several swaps at once it may ask for the next step (3 at most).",
+        kiloswap_conf_notice_es:
+            "On-chain → Lightning: tu factura se paga cuando tu depósito tiene 1 confirmación hasta 0,01 BTC, 2 hasta 0,1 BTC y 3 por encima. Cuentan todos los swaps pendientes a la vez, así que con varios swaps simultáneos puede pedir el escalón siguiente (como mucho 3).",
         created: "Created",
         id: "ID",
         headline: "Kiloswap",
