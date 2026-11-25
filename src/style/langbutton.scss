@@ -75,7 +75,7 @@
 
 // Phones: keep the page's last button clear of the floating switch
 @media (max-width: 900px) {
-    footer {
-        padding-bottom: 4.5rem;
+    body footer {
+        padding-bottom: 5rem !important;
     }
 }
