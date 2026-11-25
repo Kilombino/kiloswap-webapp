@@ -15,10 +15,49 @@ const LangButton = () => {
     const close = (e: MouseEvent) => {
         if (ref && !ref.contains(e.target as Node)) setOpen(false);
     };
-    onMount(() => document.addEventListener("click", close));
-    onCleanup(() => document.removeEventListener("click", close));
+    // Phones: the switch moves up under the header while a full-width action button
+    // (create swap, pay, refund…) is on screen, so it never covers it
+    const [aside, setAside] = createSignal(false);
+    let io: IntersectionObserver | undefined;
+    let mo: MutationObserver | undefined;
+    const watched = new Set<Element>();
+    const visible = new Set<Element>();
+    const scan = () => {
+        if (!io) return;
+        document
+            .querySelectorAll("#create-swap-button, .frame .btn:not(.btn-light)")
+            .forEach((el) => {
+                if (!watched.has(el)) {
+                    watched.add(el);
+                    io!.observe(el);
+                }
+            });
+    };
+    onMount(() => {
+        document.addEventListener("click", close);
+        if (typeof IntersectionObserver === "undefined") return;
+        io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+                if (e.isIntersecting) visible.add(e.target);
+                else visible.delete(e.target);
+            }
+            setAside(visible.size > 0 && window.innerWidth <= 900);
+        });
+        scan();
+        mo = new MutationObserver(scan);
+        mo.observe(document.body, { childList: true, subtree: true });
+    });
+    onCleanup(() => {
+        document.removeEventListener("click", close);
+        io?.disconnect();
+        mo?.disconnect();
+    });
     return (
-        <div class="lang-float" ref={ref} data-testid="lang-float">
+        <div
+            class="lang-float"
+            classList={{ aside: aside() }}
+            ref={ref}
+            data-testid="lang-float">
             <Show when={open()}>
                 <ul class="lang-menu" role="listbox" aria-label={t("language_choose")}>
                     <For each={langs}>

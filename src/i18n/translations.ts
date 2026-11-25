@@ -3,6 +3,9 @@
 // unchanged) plus Kiloswap's own strings. Missing keys fall back to English.
 const translations = {
     "de": {
+        "backup_skip": "Überspringen",
+        "backup_skip_confirm": "Trotzdem überspringen",
+        "backup_skip_back": "Zurück",
         "language": "Deutsch",
         "or": "oder",
         "error": "Fehler",
@@ -158,6 +161,10 @@ const translations = {
         "language_choose": "Sprache"
     },
     "es": {
+        "backup_skip": "Omitir",
+        "backup_skip_warning": "Si pierdes este navegador y el swap falla, nadie podrá recuperar tus fondos, ni siquiera Kiloswap. La clave queda guardada en este navegador.",
+        "backup_skip_confirm": "Omitir de todos modos",
+        "backup_skip_back": "Volver",
         "language": "Español",
         "or": "o",
         "status": "Estado",
@@ -318,6 +325,9 @@ const translations = {
         "language_choose": "Idioma"
     },
     "pt": {
+        "backup_skip": "Saltar",
+        "backup_skip_confirm": "Saltar mesmo assim",
+        "backup_skip_back": "Voltar",
         "language": "Português",
         "or": "ou",
         "status": "Estado",

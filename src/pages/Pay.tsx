@@ -17,6 +17,7 @@ import {
 } from "solid-js";
 
 import BackupFlow, { BackupStep } from "../components/BackupFlow";
+import { backupSkipped, skipBackup } from "../utils/backupSkip";
 import BlockExplorer, {
     BlockExplorerTargetKind,
 } from "../components/BlockExplorer";
@@ -156,7 +157,8 @@ const Pay = () => {
         return (
             currentSwap !== null &&
             currentSwap.type !== SwapType.Reverse &&
-            !rescueFileBackupDone()
+            !rescueFileBackupDone() &&
+            !backupSkipped(currentSwap.id)
         );
     });
 
@@ -190,7 +192,8 @@ const Pay = () => {
             }
 
             return {
-                backupDone: rescueFileBackupDone(),
+                backupDone:
+                    rescueFileBackupDone() || backupSkipped(currentSwap.id),
                 swap: currentSwap,
                 timedOutRefundable: timedOutRefundable(),
             };
@@ -420,6 +423,7 @@ const Pay = () => {
                         <BackupFlow
                             resetKey={params.id}
                             initialStep={initialBackupStep}
+                            onSkip={() => params.id && skipBackup(params.id)}
                         />
                         <SettingsMenu />
                     </div>

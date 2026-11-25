@@ -15,6 +15,7 @@ export const enum BackupStep {
 type BackupFlowProps = {
     initialStep?: BackupStep;
     resetKey?: string;
+    onSkip?: () => void;
 };
 
 const BackupFlow = (props: BackupFlowProps) => {
@@ -40,6 +41,7 @@ const BackupFlow = (props: BackupFlowProps) => {
                     onMnemonicRequested={() =>
                         setLocalStep(BackupStep.Mnemonic)
                     }
+                    onSkip={props.onSkip}
                 />
             }>
             <Match when={localStep() === BackupStep.Verify}>

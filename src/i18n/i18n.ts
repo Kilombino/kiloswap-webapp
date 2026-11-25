@@ -175,6 +175,11 @@ const dict = {
         download_boltz_rescue_key_subline_warning:
             "Failing to do so may lead to **LOSS OF FUNDS**.",
         download_new_key: "Download rescue key",
+        backup_skip: "Skip",
+        backup_skip_warning:
+            "If you lose this browser and the swap fails, nobody can recover your funds — not even Kiloswap. The key stays saved in this browser.",
+        backup_skip_confirm: "Skip anyway",
+        backup_skip_back: "Back",
         verify_boltz_rescue_key: "Verify Rescue Key",
         verify_boltz_rescue_key_subline:
             "Please select your previously saved Rescue Key to verify it.",
