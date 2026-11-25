@@ -19,6 +19,9 @@ const donationAddress = import.meta.env.VITE_DONATION_ADDRESS as
 const config = {
     ...baseConfig,
     network: "mainnet",
+    // Kiloswap: the server signs nothing (its key is the guard's); claims
+    // and refunds take the script path
+    cooperativeDisabled: true,
     donation: donationAddress ? { address: donationAddress } : undefined,
     // Kiloswap: no channel donations (no ourNode, no donation address)
     torUrl: import.meta.env.VITE_TOR_URL as string | undefined,

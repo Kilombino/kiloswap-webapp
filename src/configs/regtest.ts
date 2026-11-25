@@ -21,6 +21,8 @@ const ourNode = import.meta.env.VITE_OUR_NODE as string | undefined;
 const config = {
     ...baseConfig,
     network: "regtest",
+    // Kiloswap: as on mainnet, no cooperative signing
+    cooperativeDisabled: true,
     loglevel: "debug",
     preventReloadOnPendingSwaps: false,
     donation: donationAddress ? { address: donationAddress } : undefined,
