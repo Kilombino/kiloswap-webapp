@@ -327,6 +327,7 @@ const translations = {
         "upload_rescue_key": "Seleccionar clave de rescate",
         "home_headline": "Swap entre Bitcoin (Blake2b XBT) y su red Lightning",
         "home_subline": "Sin custodia: tus claves nunca salen de tu navegador, y cada swap o se completa o se puede reembolsar.",
+        "kiloswap_exact_amount": "Envía exactamente este importe, en una sola transacción. Si envías otra cantidad, el swap se rechaza: no se paga nada y solo recuperas tus monedas con tu clave de rescate a partir del bloque de vencimiento (unos 3 días).",
         "kiloswap_conf_notice": "On-chain → Lightning: tu factura se paga cuando tu depósito tiene 1 confirmación hasta 0,01 BTC, 2 hasta 0,1 BTC y 3 por encima. Cuentan todos los swaps pendientes a la vez, así que con varios swaps simultáneos puede pedir el escalón siguiente (como mucho 3).",
         "refund_no_coop": "Este servicio nunca firma reembolsos a medias, así que no hay reembolso anticipado: espera al bloque de vencimiento indicado arriba. A partir de ahí, tu clave de rescate basta para recuperar tus monedas con una transacción desde esta página, aunque el servicio esté caído.",
         "language_choose": "Idioma"

@@ -83,6 +83,14 @@ const PayOnchain = (props: {
             fallback={<LoadingSpinner />}>
             <div>
                 <h2>{headerText()}</h2>
+                <Show when={props.expectedAmount > 0}>
+                    <p
+                        class="frame-text"
+                        data-testid="kiloswap-exact-amount"
+                        style={{ "font-weight": "bold" }}>
+                        {t("kiloswap_exact_amount")}
+                    </p>
+                </Show>
                 <hr />
                 <a href={props.bip21}>
                     <QrCode asset={props.assetSend} data={props.bip21} />

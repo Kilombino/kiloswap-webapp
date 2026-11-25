@@ -115,13 +115,15 @@ const dict = {
         refund_explainer: "You will be able to refund after the swap timeout!",
         refund_no_coop:
             "This service never co-signs a refund, so there is no early refund: wait until the timeout block above. From then on your rescue key alone takes your coins back, with one transaction from this page, even if the service is down.",
+        kiloswap_exact_amount:
+            "Send exactly this amount, in one transaction. A different amount is rejected: nothing is paid, and your coins only come back with your rescue key from the timeout block (about 3 days).",
         kiloswap_conf_notice:
             "On-chain → Lightning: your invoice is paid once your deposit has 1 confirmation up to 0.01 BTC, 2 up to 0.1 BTC and 3 above. All pending swaps count together, so with several swaps at once it may ask for the next step (3 at most).",
         created: "Created",
         id: "ID",
         headline: "Kiloswap",
         subline:
-            "Swap between the Bitcoin (BLAKE2b) chain and its Lightning network. Non-custodial: your keys never leave your browser.",
+            "Swap between Bitcoin (BLAKE2b) and its Lightning network. Non-custodial: your keys never leave your browser.",
         start_swapping: "Start Swapping",
         warning_return:
             "Return to this page after paying the invoice! The payment might show pending until you return to this page.",
@@ -259,7 +261,7 @@ const dict = {
         open_source: "Open source on GitHub (AGPL-3.0)",
         hero_submarine_title: "Submarine swaps",
         hero_submarine_text:
-            "Send on-chain BTC on the Bitcoin (BLAKE2b) chain; the service pays your Lightning invoice.",
+            "Send on-chain BTC on Bitcoin (BLAKE2b); the service pays your Lightning invoice.",
         hero_reverse_title: "Reverse swaps",
         hero_reverse_text:
             "Pay a Lightning invoice and receive on-chain BTC at your Bitcoin (BLAKE2b) address.",
@@ -268,7 +270,7 @@ const dict = {
             "Swaps are locked in HTLCs. If a submarine swap fails, your rescue key lets you refund your BTC after the timelock, even without the service.",
         suspension_rescue_link: "Go to the rescue page",
         invoice_missing_blake2b:
-            "This invoice was not made by a Lightning node on the Bitcoin BLAKE2b chain (it lacks feature bit 512). Paying it would fail.",
+            "This invoice was not made by a Bitcoin BLAKE2b Lightning node (it lacks feature bit 512). Paying it would fail.",
         copy_preimage: "Copy payment preimage",
         donate: "Donate",
         contact: "Contact",
@@ -304,9 +306,9 @@ const dict = {
         donate_how_promise:
             "Donations are used only for the service's liquidity and the on-chain fees of managing it.",
         donate_small_print:
-            "A donation is a gift: it is not tied to any swap, it is not refunded, and it is not a tax-deductible charitable contribution. Never send swap funds here. Send only from a Bitcoin (BLAKE2b) chain wallet.",
+            "A donation is a gift: it is not tied to any swap, it is not refunded, and it is not a tax-deductible charitable contribution. Never send swap funds here. Send only from a Bitcoin (BLAKE2b) wallet.",
         donate_replay_hint:
-            "Send from a wallet that signs for the Bitcoin (BLAKE2b) chain only (with replay protection), or from coins you received after the fork.",
+            "Send from a wallet that signs for Bitcoin (BLAKE2b) only (with replay protection), or from coins that exist only on Bitcoin (BLAKE2b).",
         donate_replay_at_risk:
             "Heads-up: this transaction isn't replay-protected. The coins you spent also exist on the SHA256 chain, and anyone could copy this transaction there, which would send those coins to our address on that chain. We will never do it ourselves. To keep them, move the coins of these addresses on the SHA256 chain to an address of yours now:",
         donate_replay_replayed:
@@ -354,7 +356,7 @@ const dict = {
             "Your node gets room to receive payments (inbound capacity). You can't withdraw our side of the channel, and we may close it at any time, for example if your node is offline for a long time.",
         channel_full_send_title: "Only send what you are happy to give,",
         channel_full_send:
-            "and only from a wallet on the Bitcoin (BLAKE2b) chain, to the address shown for this donation.",
+            "and only from a Bitcoin (BLAKE2b) wallet, to the address shown for this donation.",
         channel_accept:
             "I understand: this is a gift, the channel is best effort only, and nothing is refunded.",
         channel_create: "Create my donation address",
