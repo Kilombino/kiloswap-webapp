@@ -27,6 +27,7 @@ import RefundButton from "../components/RefundButton";
 import RefundEta from "../components/RefundEta";
 import { SwapIcons, getSwapIconAssets } from "../components/SwapIcons";
 import { hiddenInformation } from "../components/settings/PrivacyMode";
+import RescueDownloadButton from "../components/RescueDownloadButton";
 import SettingsCog from "../components/settings/SettingsCog";
 import SettingsMenu from "../components/settings/SettingsMenu";
 import Tooltip from "../components/settings/Tooltip";
@@ -444,6 +445,7 @@ const Pay = () => {
                         </h2>
                         <SettingsCog />
                     </span>
+                    <RescueDownloadButton />
                     <Show when={!loading()} fallback={<LoadingSpinner />}>
                         <Show when={swap()?.refundTx !== undefined}>
                             <p class="swap-status">

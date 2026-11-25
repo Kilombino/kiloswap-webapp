@@ -1771,3 +1771,15 @@ header {
         }
     }
 }
+
+// Kiloswap: the rescue key download on a swap's page
+.rescue-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: auto;
+    margin: 0 auto 0.75rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+}

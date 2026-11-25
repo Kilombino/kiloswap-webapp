@@ -276,7 +276,7 @@ const translations = {
         "download_boltz_rescue_key_subline_warning": "No hacerlo puede provocar una **PÉRDIDA DE FONDOS**.",
         "download_new_key": "Descargar clave de rescate",
         "verify_key": "Verificar clave",
-        "rescue_key": "Clave de Rescate Boltz",
+        "rescue_key": "Clave de rescate",
         "reset_rescue_key_prompt": "⚠️ ADVERTENCIA: Esto eliminará TODOS tus datos de intercambios y generará una nueva clave de rescate.\n\nNo continúes a menos que tengas una copia de seguridad de tu clave de rescate existente o estés absolutamente seguro de que no la necesitarás.\n\nEscribe 'confirm' para continuar:",
         "reset_rescue_key_invalid_confirmation": "Confirmación no válida. Por favor, escribe 'confirm' para continuar.",
         "reset_rescue_key_error": "Ocurrió un error al restablecer la clave de rescate. Por favor, intente de nuevo.\n\nError: {{ error }}",
