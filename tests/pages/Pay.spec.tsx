@@ -446,12 +446,9 @@ describe("Pay", () => {
         const expectedDate = new Date(timeoutEta * 1000).toLocaleString();
         expect(refundEta).toHaveTextContent(expectedDate);
         // Kiloswap: no cooperative refund, so the wait for the timeout is
-        // explained, in English and in Spanish
+        // explained, in the chosen language
         expect(screen.getByTestId("refund-no-coop")).toHaveTextContent(
             dict.en.refund_no_coop,
-        );
-        expect(screen.getByTestId("refund-no-coop-es")).toHaveTextContent(
-            dict.en.refund_no_coop_es,
         );
     });
 

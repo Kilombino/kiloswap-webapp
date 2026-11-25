@@ -24,10 +24,10 @@ import { RescueProvider } from "./context/Rescue";
 import ChannelDonation from "./pages/ChannelDonation";
 import ClaimRescue from "./pages/ClaimRescue";
 import Create from "./pages/Create";
+import LangButton from "./components/LangButton";
 import Error from "./pages/Error";
 import Hero from "./pages/Hero";
 import History from "./pages/History";
-import Network from "./pages/Network";
 import NotFound from "./pages/NotFound";
 import Pay from "./pages/Pay";
 import Privacy from "./pages/Privacy";
@@ -97,6 +97,7 @@ const App = (props: RouteSectionProps) => {
                         <Notification />
                         <DonateModal />
                         <Footer />
+                        <LangButton />
                     </RescueProvider>
                 </PayProvider>
             </CreateProvider>
@@ -125,7 +126,13 @@ const cleanup = render(
             <Route path="/history" component={History} />
             <Route path="/donate" component={DonatePage} />
             <Route path="/donate/channel/:id" component={ChannelDonation} />
-            <Route path="/network" component={Network} />
+            <Route
+                path="/network"
+                component={() => {
+                    window.location.replace(config.networkUrl);
+                    return null;
+                }}
+            />
             <Route path="/terms" component={Terms} />
             <Route path="/privacy" component={Privacy} />
             <Route path="*404" component={NotFound} />

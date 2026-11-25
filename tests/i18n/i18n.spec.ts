@@ -89,9 +89,17 @@ const collectStrings = (
 };
 
 describe("i18n", () => {
-    test("should only ship English", () => {
-        expect(Object.keys(rawDict)).toEqual(["en"]);
-        expect(Object.keys(dict)).toEqual(["en"]);
+    test("should ship English and the kept translations", () => {
+        expect(Object.keys(rawDict)).toEqual(["en", "de", "es", "pt", "zh", "ja"]);
+        expect(Object.keys(dict)).toEqual(Object.keys(rawDict));
+    });
+
+    test("should fall back to English for every missing key", () => {
+        for (const lang of Object.keys(dict) as (keyof typeof dict)[]) {
+            for (const key of Object.keys(dict.en)) {
+                expect((dict[lang] as Record<string, unknown>)[key]).toBeDefined();
+            }
+        }
     });
 
     test("should include the default language", () => {

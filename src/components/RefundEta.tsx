@@ -29,9 +29,6 @@ const RefundEta = (props: {
                 <p class="frame-text" data-testid="refund-no-coop">
                     {t("refund_no_coop")}
                 </p>
-                <p class="frame-text" lang="es" data-testid="refund-no-coop-es">
-                    {t("refund_no_coop_es")}
-                </p>
             </Show>
         </div>
     );

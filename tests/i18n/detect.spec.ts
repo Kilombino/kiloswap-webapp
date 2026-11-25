@@ -7,9 +7,9 @@ describe("detect", () => {
         ${"en-US"}        | ${"en"}
         ${"en-UK"}        | ${"en"}
         ${"en"}           | ${"en"}
-        ${"de-DE"}        | ${config.defaultLanguage}
-        ${"es-ES"}        | ${config.defaultLanguage}
-        ${"de"}           | ${config.defaultLanguage}
+        ${"de-DE"}        | ${"de"}
+        ${"es-ES"}        | ${"es"}
+        ${"de"}           | ${"de"}
         ${"none-DE"}      | ${config.defaultLanguage}
         ${"ro-RO"}        | ${config.defaultLanguage}
         ${undefined}      | ${config.defaultLanguage}
@@ -60,7 +60,7 @@ describe("detect", () => {
             expect(setter).toHaveBeenCalledTimes(0);
         });
 
-        test.each(["invalid", "de", "zh"])(
+        test.each(["invalid", "ro", "xx"])(
             "should default to browser language for unsupported language URL param %s",
             (lang) => {
                 Object.defineProperty(window, "location", {

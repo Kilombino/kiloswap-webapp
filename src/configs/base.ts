@@ -33,6 +33,8 @@ const defaults = {
     repoUrl: "https://github.com/Kilombino/kiloswap",
     // Where people get help and get in touch
     contactUrl: "https://kilombino.com",
+    // Kiloswap: "Network" goes to our mempool explorer
+    networkUrl: "https://mempool.kilombino.com",
     // The smallest channel our node accepts (lnd's minchansize)
     channelMinSat: 1_000_000,
 };

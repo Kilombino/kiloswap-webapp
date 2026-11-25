@@ -1,0 +1,70 @@
+// Kiloswap: the floating language switch
+.lang-float {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+
+    .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        width: auto;
+        min-height: 44px;
+        margin: 0;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid var(--color-border-strong);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-secondary-900) 88%, transparent);
+        color: var(--color-text);
+        font-size: 0.9rem;
+        box-shadow: 0 0 18px var(--color-primary-glow);
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+    }
+
+    .lang-code {
+        font-weight: 600;
+        letter-spacing: 0.04em;
+    }
+
+    .lang-menu {
+        margin: 0;
+        padding: 0.35rem;
+        list-style: none;
+        border: 1px solid var(--color-border-strong);
+        border-radius: var(--border-radius-lg, 12px);
+        background: var(--color-secondary-800, #0d1530);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+        button {
+            display: block;
+            width: 100%;
+            min-width: 9rem;
+            margin: 0;
+            padding: 0.5rem 0.9rem;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--color-text);
+            text-align: left;
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+                background: color-mix(in srgb, var(--color-primary) 22%, transparent);
+            }
+        }
+    }
+}
+
+// Phones: keep the page's last button clear of the floating switch
+@media (max-width: 900px) {
+    footer {
+        padding-bottom: 4.5rem;
+    }
+}

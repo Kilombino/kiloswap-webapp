@@ -1,10 +1,11 @@
-import { A } from "@solidjs/router";
 import { BigNumber } from "bignumber.js";
 import { For, Show, createSignal } from "solid-js";
 
 import Accordion from "../components/Accordion";
+import ExternalLink from "../components/ExternalLink";
 import { donationAvailable } from "../components/DonateModal";
 import NetworkSky from "../components/NetworkSky";
+import { config } from "../config";
 import { BTC } from "../consts/Assets";
 import { useGlobalContext } from "../context/Global";
 import type { DictKey } from "../i18n/i18n";
@@ -13,7 +14,6 @@ import Create from "../pages/Create";
 import "../style/hero.scss";
 import { formatAmount, formatDenomination } from "../utils/denomination";
 import { openDonate } from "../utils/donate";
-import { prefersSpanish } from "../utils/spanish";
 
 const steps: [DictKey, DictKey][] = [
     ["hero_submarine_title", "hero_submarine_text"],
@@ -43,16 +43,15 @@ export const Hero = () => {
             <section class="home-first">
                 <div class="home-sky">
                     <NetworkSky mode="background" onMeta={setMeta} />
-                    <A href="/network" class="home-tap" data-testid="home-tap">
+                    <ExternalLink
+                        href={config.networkUrl}
+                        class="home-tap"
+                        data-testid="home-tap">
                         {t("home_tap_explore")}
-                    </A>
+                    </ExternalLink>
                 </div>
                 <div class="home-intro" data-testid="home-intro">
-                    <h1>
-                        {prefersSpanish()
-                            ? t("home_headline_es")
-                            : t("home_headline")}
-                    </h1>
+                    <h1>{t("home_headline")}</h1>
                     <p class="home-subline">{t("home_subline")}</p>
                     <Show when={meta()}>
                         <p class="home-stats" data-testid="home-stats">
@@ -64,9 +63,11 @@ export const Hero = () => {
                             })}
                         </p>
                     </Show>
-                    <A href="/network" class="btn btn-light home-explore">
+                    <ExternalLink
+                        href={config.networkUrl}
+                        class="btn btn-light home-explore">
                         {t("network_more")}
-                    </A>
+                    </ExternalLink>
                 </div>
                 <div id="create-overlay" class="home-card">
                     <Create />
