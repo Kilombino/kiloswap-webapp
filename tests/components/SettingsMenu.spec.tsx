@@ -57,30 +57,18 @@ describe("SettingsMenu", () => {
 
         expect(screen.getByText(i18n.en.settings)).toBeInTheDocument();
         for (const label of [
+            i18n.en.language_choose,
             i18n.en.denomination,
             i18n.en.decimal_separator,
             i18n.en.hide_wallet_address,
-            i18n.en.zero_conf,
             i18n.en.rescue_key,
             i18n.en.logs,
         ]) {
             expect(screen.getByText(`${label}:`)).toBeInTheDocument();
         }
         expect(screen.queryByTestId("bitcoin-only-toggle")).toBeNull();
-    });
-
-    test("should toggle zeroConf on click", async () => {
-        renderOpen();
-        globalSignals.setZeroConf(false);
-
-        const toggle = await screen.findByTestId("zero-conf-toggle");
-
-        fireEvent.click(toggle);
-        expect(globalSignals.zeroConf()).toBe(true);
-        expect(globalSignals.settingsMenu()).toBe(true);
-
-        fireEvent.click(toggle);
-        expect(globalSignals.zeroConf()).toBe(false);
+        // Kiloswap: no zero-conf switch (it stays on)
+        expect(screen.queryByTestId("zero-conf-toggle")).toBeNull();
     });
 
     test("should toggle privacyMode on click", () => {

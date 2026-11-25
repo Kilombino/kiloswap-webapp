@@ -7,14 +7,13 @@ import { type JSXElement, Show, onCleanup, onMount } from "solid-js";
 import { useGlobalContext } from "../../context/Global";
 import type { DictKey } from "../../i18n/i18n";
 import "../../style/settings.scss";
-import { isMobile } from "../../utils/helper";
 import Denomination from "./Denomination";
 import Logs from "./Logs";
 import PrivacyMode from "./PrivacyMode";
 import RescueFile from "./RescueKey";
 import Separator from "./Separator";
 import Tooltip from "./Tooltip";
-import ZeroConf from "./ZeroConf";
+import Language from "./Language";
 
 const Section = (props: {
     title: string;
@@ -101,6 +100,11 @@ const SettingsMenuContent = () => {
                         title={t("display")}
                         icon={<ImDisplay size={20} />}>
                         <Entry
+                            label={"language_choose"}
+                            tooltipLabel={"language_choose"}
+                            settingElement={<Language />}
+                        />
+                        <Entry
                             label={"denomination"}
                             tooltipLabel={"denomination_tooltip"}
                             settingElement={<Denomination />}
@@ -120,13 +124,9 @@ const SettingsMenuContent = () => {
                             tooltipLabel={"hide_wallet_address_tooltip"}
                             settingElement={<PrivacyMode />}
                         />
-                        <Show when={!isMobile()}>
-                            <Entry
-                                label={"zero_conf"}
-                                tooltipLabel={"zero_conf_tooltip"}
-                                settingElement={<ZeroConf />}
-                            />
-                        </Show>
+                        {/* Kiloswap: no zero-conf switch (it stays on: a
+                            Lightning → on-chain claim goes out as soon as
+                            the lockup is in the mempool) */}
                         <Entry
                             label={"rescue_key"}
                             tooltipLabel={"download_boltz_rescue_key"}

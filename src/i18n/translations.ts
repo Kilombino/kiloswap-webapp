@@ -3,6 +3,7 @@
 // unchanged) plus Kiloswap's own strings. Missing keys fall back to English.
 const translations = {
     "de": {
+        "copy_txid": "Txid kopieren",
         "backup_skip": "Überspringen",
         "backup_skip_confirm": "Trotzdem überspringen",
         "backup_skip_back": "Zurück",
@@ -15,7 +16,7 @@ const translations = {
         "support": "Hilfe",
         "terms": "Nutzungsbedingungen",
         "privacy": "Datenschutz",
-        "blockexplorer": "{{ typeLabel }} anzeigen",
+        "blockexplorer": "{{ typeLabel }} auf mempool.kilombino.com ansehen",
         "blockexplorer_lockup_address": "Lockupadresse",
         "blockexplorer_lockup_tx": "Lockuptransaktion",
         "blockexplorer_claim_tx": "Claimtransaktion",
@@ -161,6 +162,7 @@ const translations = {
         "language_choose": "Sprache"
     },
     "es": {
+        "copy_txid": "Copiar txid",
         "backup_skip": "Omitir",
         "backup_skip_warning": "Si pierdes este navegador y el swap falla, nadie podrá recuperar tus fondos, ni siquiera Kiloswap. La clave queda guardada en este navegador.",
         "backup_skip_confirm": "Omitir de todos modos",
@@ -175,7 +177,7 @@ const translations = {
         "support": "Ayuda",
         "terms": "Términos",
         "privacy": "Privacidad",
-        "blockexplorer": "Ver en {{ typeLabel }}",
+        "blockexplorer": "Ver {{ typeLabel }} en mempool.kilombino.com",
         "blockexplorer_lockup_address": "Dirección Lockup",
         "blockexplorer_lockup_tx": "Transacción de Lockup",
         "blockexplorer_claim_tx": "Transacción de Reclamación",
@@ -325,6 +327,7 @@ const translations = {
         "language_choose": "Idioma"
     },
     "pt": {
+        "copy_txid": "Copiar txid",
         "backup_skip": "Saltar",
         "backup_skip_confirm": "Saltar mesmo assim",
         "backup_skip_back": "Voltar",
@@ -339,7 +342,7 @@ const translations = {
         "support": "Suporte",
         "terms": "Termos",
         "privacy": "Privacidade",
-        "blockexplorer": "Abrir {{ typeLabel }}",
+        "blockexplorer": "Ver {{ typeLabel }} em mempool.kilombino.com",
         "blockexplorer_lockup_address": "endereço de lockup",
         "blockexplorer_lockup_tx": "transação de lockup",
         "blockexplorer_claim_tx": "transação de reivindicação",
@@ -498,7 +501,6 @@ const translations = {
         "onion": "洋葱",
         "terms": "条款",
         "privacy": "隐私",
-        "blockexplorer": "打开{{ typeLabel }}",
         "blockexplorer_lockup_address": "锁仓地址",
         "blockexplorer_lockup_tx": "锁仓交易",
         "blockexplorer_claim_tx": "索赔交易",
@@ -660,7 +662,6 @@ const translations = {
         "support": "ヘルプ",
         "terms": "利用規約",
         "privacy": "プライバシー",
-        "blockexplorer": "ブロックエクスプローラーで表示{{ typeLabel }}",
         "blockexplorer_lockup_address": "ロックアップアドレス",
         "blockexplorer_lockup_tx": "ロックアップトランザクション",
         "blockexplorer_claim_tx": "要求トランザクション",

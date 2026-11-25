@@ -1783,3 +1783,15 @@ header {
     padding: 0.4rem 1rem;
     font-size: 0.9rem;
 }
+
+// Kiloswap: copy the txid / open it on our mempool
+.tx-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+
+    > * {
+        flex: 1 1 12rem;
+    }
+}
