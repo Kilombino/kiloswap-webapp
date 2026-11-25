@@ -39,7 +39,7 @@ describe("Nav", () => {
             [i18n.en.rescue, "/rescue"],
             [i18n.en.history, "/history"],
             [i18n.en.network, "/network"],
-            [i18n.en.contact, "https://paulscode.com"],
+            [i18n.en.contact, "https://github.com/Kilombino/kiloswap/issues"],
         ]);
     });
 

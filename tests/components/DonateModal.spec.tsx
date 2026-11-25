@@ -159,7 +159,7 @@ describe("DonateModal", () => {
 
         copyBip21();
         expect(lastCopied()).toEqual(
-            `bitcoin:${address}?label=Lightning%20Fork%20Swap%20donation`,
+            `bitcoin:${address}?label=Kiloswap%20donation`,
         );
 
         fireEvent.click(screen.getByTestId("donate-preset-100000"));
@@ -213,7 +213,9 @@ describe("DonateModal", () => {
         expect(notice.textContent).toContain("bc1qdonorcoins00000");
         expect(getReplayVerdict).toHaveBeenCalledWith(txid);
         const contact = notice.querySelector("a")!;
-        expect(contact.getAttribute("href")).toEqual("https://paulscode.com");
+        expect(contact.getAttribute("href")).toEqual(
+            "https://github.com/Kilombino/kiloswap/issues",
+        );
         expect(contact.getAttribute("target")).toEqual("_blank");
     });
 
@@ -307,7 +309,9 @@ describe("Nav and Footer", () => {
         const contacts = screen.getAllByText(i18n.en.contact);
         expect(contacts).toHaveLength(2);
         for (const link of contacts) {
-            expect(link.getAttribute("href")).toEqual("https://paulscode.com");
+            expect(link.getAttribute("href")).toEqual(
+                "https://github.com/Kilombino/kiloswap/issues",
+            );
             expect(link.getAttribute("rel")).toContain("noopener");
         }
         fireEvent.click(screen.getByTestId("nav-donate"));

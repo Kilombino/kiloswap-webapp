@@ -28,6 +28,8 @@ describe("Privacy", () => {
         expect(text).not.toMatch(/Bitcoin \(SHA256\)|SHA256 Bitcoin/);
         expect(text).toContain("SHA256 chain");
         const contact = screen.getByText("contact us");
-        expect(contact.getAttribute("href")).toEqual("https://paulscode.com");
+        expect(contact.getAttribute("href")).toEqual(
+            "https://github.com/Kilombino/kiloswap/issues",
+        );
     });
 });

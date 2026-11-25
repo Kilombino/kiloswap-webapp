@@ -11,7 +11,9 @@ describe("Terms", () => {
         expect(section).toContain("not refunded");
         expect(section).toContain("creates no contract or obligation");
         const contact = screen.getByText("contact us");
-        expect(contact.getAttribute("href")).toEqual("https://paulscode.com");
+        expect(contact.getAttribute("href")).toEqual(
+            "https://github.com/Kilombino/kiloswap/issues",
+        );
         expect(screen.getByText("6. Open source")).toBeTruthy();
     });
 });

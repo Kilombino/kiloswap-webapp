@@ -13,10 +13,10 @@ import {
 describe("donate utils", () => {
     test("BIP21 with and without an amount, always labelled", () => {
         expect(donationBip21("bc1qabc", 0)).toEqual(
-            "bitcoin:bc1qabc?label=Lightning%20Fork%20Swap%20donation",
+            "bitcoin:bc1qabc?label=Kiloswap%20donation",
         );
         expect(donationBip21("bc1qabc", 100_000)).toEqual(
-            "bitcoin:bc1qabc?amount=0.001&label=Lightning%20Fork%20Swap%20donation",
+            "bitcoin:bc1qabc?amount=0.001&label=Kiloswap%20donation",
         );
         expect(donationBip21("bc1qabc", 1)).toContain("amount=0.00000001&");
     });
