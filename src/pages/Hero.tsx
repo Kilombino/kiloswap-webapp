@@ -13,6 +13,7 @@ import Create from "../pages/Create";
 import "../style/hero.scss";
 import { formatAmount, formatDenomination } from "../utils/denomination";
 import { openDonate } from "../utils/donate";
+import { prefersSpanish } from "../utils/spanish";
 
 const steps: [DictKey, DictKey][] = [
     ["hero_submarine_title", "hero_submarine_text"],
@@ -47,7 +48,11 @@ export const Hero = () => {
                     </A>
                 </div>
                 <div class="home-intro" data-testid="home-intro">
-                    <h1>{t("home_headline")}</h1>
+                    <h1>
+                        {prefersSpanish()
+                            ? t("home_headline_es")
+                            : t("home_headline")}
+                    </h1>
                     <p class="home-subline">{t("home_subline")}</p>
                     <Show when={meta()}>
                         <p class="home-stats" data-testid="home-stats">

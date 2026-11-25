@@ -123,10 +123,12 @@ h3 {
 
     .home-first {
         position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
-        gap: 2rem;
+        // Kiloswap: the title above, the swap card centered under it
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
         min-height: calc(100dvh - 66px);
         padding: 2rem clamp(1rem, 4vw, 3rem);
         overflow: hidden;
@@ -150,8 +152,13 @@ h3 {
         z-index: 1;
     }
 
+    .home-card {
+        width: min(520px, 100%);
+    }
+
     .home-intro {
-        max-width: 560px;
+        max-width: 760px;
+        text-align: center;
         padding: 1.5rem;
         border-radius: var(--border-radius-lg);
         background: radial-gradient(
@@ -170,12 +177,13 @@ h3 {
             margin: 0 0 1rem;
             font-size: clamp(2rem, 4.2vw, 3.4rem);
             line-height: 1.08;
-            text-align: left;
+            text-align: center;
         }
     }
 
     .home-subline {
         max-width: 34rem;
+        margin-inline: auto;
         color: var(--color-white-90);
         font-size: 1.15rem;
         line-height: 1.45;
@@ -285,19 +293,20 @@ h3 {
             order: 0;
         }
 
-        .home-card {
+        // Kiloswap: the title first, then the card; the sky band (an empty
+        // graph on this chain for now) is left out on phones
+        .home-intro {
             order: 1;
         }
 
-        .home-intro {
+        .home-card {
             order: 2;
         }
 
         // Phones: the sky is a band above the card, and never takes the
         // page's scrolling; a tap goes to the full view
         .home-sky {
-            position: relative;
-            height: 45vh;
+            display: none;
         }
 
         .home-tap {

@@ -32,7 +32,7 @@ const defaults = {
     // repository links to the backend and web app repositories
     repoUrl: "https://github.com/Kilombino/kiloswap",
     // Where people get help and get in touch
-    contactUrl: "https://github.com/Kilombino/kiloswap/issues",
+    contactUrl: "https://kilombino.com",
     // The smallest channel our node accepts (lnd's minchansize)
     channelMinSat: 1_000_000,
 };

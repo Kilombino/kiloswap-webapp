@@ -1,19 +1,18 @@
 import type { Component } from "solid-js";
 
-import { useGlobalContext } from "../context/Global";
 import en from "../legal/terms.en.md?raw";
 import es from "../legal/terms.es.md?raw";
 import { renderLegal } from "../legal/render";
+import { prefersSpanish } from "../utils/spanish";
 import "../style/legal.scss";
 
-// Kilombino's own text (src/legal/terms.*.md): Spanish for Spanish, English
-// for every other language.
+// Kilombino's own text (src/legal/terms.*.md): Spanish for browsers that
+// prefer Spanish, English for every other language.
 const Terms: Component = () => {
-    const { i18n } = useGlobalContext();
     return (
         <div
             class="terms-container"
-            innerHTML={renderLegal(i18n() === "es" ? es : en)}
+            innerHTML={renderLegal(prefersSpanish() ? es : en)}
         />
     );
 };

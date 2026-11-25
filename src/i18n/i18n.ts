@@ -461,7 +461,8 @@ const dict = {
         network_more: "Explore the network",
         flip_assets: "Swap the direction",
         home_headline:
-            "Swap between the BLAKE2b chain and its Lightning network",
+            "Swap between Bitcoin (Blake2b XBT) and its Lightning Network",
+        home_headline_es: "Swap entre Bitcoin (Blake2b XBT) y su red Lightning",
         home_subline:
             "Non-custodial: your keys never leave your browser, and every swap either completes or can be refunded.",
         home_stats:
