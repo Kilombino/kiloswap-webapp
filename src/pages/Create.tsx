@@ -33,7 +33,6 @@ import {
     formatDenomination,
     getValidationRegex,
 } from "../utils/denomination";
-import { isMobile } from "../utils/helper";
 import { isDeferredInvoiceDestination } from "../utils/invoice";
 
 // TODO: formatted amounts should be *instant* and not depend on quote being calculated
@@ -656,10 +655,11 @@ const Create = () => {
                 <InvoiceInput />
                 <hr class="spacer" />
             </Show>
-            <Show when={isMobile()}>
-                <QrScan />
-                <hr class="spacer" />
-            </Show>
+            {/* Kiloswap (27 nov 2026): the camera scanner on every device that has a camera
+                (desktop webcams too, like bridge.kilombino.com), not only on phones; QrScan
+                itself shows nothing when there is no camera */}
+            <QrScan />
+            <hr class="spacer" />
             <CreateButton />
             <Show when={embeddedMode()}>
                 <div class="embedded-branding">
